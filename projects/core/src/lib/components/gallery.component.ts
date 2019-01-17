@@ -10,7 +10,7 @@ import {
   EventEmitter,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { Subscription, SubscriptionLike } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Gallery } from '../services/gallery.service';
 import { GalleryRef } from '../services/gallery-ref';
 import { GalleryError, GalleryItem, GalleryState } from '../models/gallery.model';
@@ -75,12 +75,12 @@ export class GalleryComponent implements OnInit, OnChanges, OnDestroy {
   @Output() itemsChange = new EventEmitter<GalleryState>();
   @Output() error = new EventEmitter<GalleryError>();
 
-  private _itemClick$: SubscriptionLike = Subscription.EMPTY;
-  private _thumbClick$: SubscriptionLike = Subscription.EMPTY;
-  private _itemChange$: SubscriptionLike = Subscription.EMPTY;
-  private _indexChange$: SubscriptionLike = Subscription.EMPTY;
-  private _playingChange$: SubscriptionLike = Subscription.EMPTY;
-  private _playerListener$: SubscriptionLike = Subscription.EMPTY;
+  private _itemClick$ = Subscription.EMPTY;
+  private _thumbClick$ = Subscription.EMPTY;
+  private _itemChange$ = Subscription.EMPTY;
+  private _indexChange$ = Subscription.EMPTY;
+  private _playingChange$ = Subscription.EMPTY;
+  private _playerListener$ = Subscription.EMPTY;
 
   constructor(private _gallery: Gallery) {
   }
